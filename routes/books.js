@@ -25,37 +25,47 @@ router.get('/', async function (req, res, next) {
 
 
 router.post('/borrow/:id', isAuthenticated, async function(req, res) {
-    const bookId = req.params.id;
-    const book = await booksDatabase.getBook(bookId);
+    try {
+        const bookId = req.params.id;
+        const book = await booksDatabase.getBook(bookId);
 
-    if (!book) {
-        return res.status(404).json({ error: 'Book not found' });
-    }
+        if (!book) {
+            return res.status(404).json({ error: 'Book not found' });
+        }
 
-    if (book.borrowed) {
-        return res.status(400).json({ error: 'Book already borrowed' });
+        if (book.borrowed) {
+            return res.status(400).json({ error: 'Book already borrowed' });
+        }
+        
+        await book.update({ borrowed: true }, { where: { id: bookId } });
+        res.json({ success: true, message: 'Book borrowed successfully', bookId: bookId });
+    } catch (error) {
+        console.error('Error borrowing book:', error);
+        res.status(500).json({ error: 'Server error while borrowing book' });
     }
-    
-    await book.update({ borrowed: true }, { where: { id: bookId } });
-    res.json({ success: 'Book borrowed successfully', bookId: bookId });
 });
 
 
 
 router.post('/return/:id', isAuthenticated, isAdmin, async function(req, res) {
-    const bookId = req.params.id;
-    const book = await booksDatabase.getBook(bookId);
+    try {
+        const bookId = req.params.id;
+        const book = await booksDatabase.getBook(bookId);
 
-    if (!book) {
-        return res.status(404).json({ error: 'Book not found' });
+        if (!book) {
+            return res.status(404).json({ error: 'Book not found' });
+        }
+
+        if (!book.borrowed) {
+            return res.status(400).json({ error: 'Book is not borrowed' });
+        }
+
+        await book.update({ borrowed: false }, { where: { id: bookId } });
+        res.json({ success: true, message: 'Book returned successfully', bookId: bookId });
+    } catch (error) {
+        console.error('Error returning book:', error);
+        res.status(500).json({ error: 'Server error while returning book' });
     }
-
-    if (!book.borrowed) {
-        return res.status(400).json({ error: 'Book is not borrowed' });
-    }
-
-    await book.update({ borrowed: false }, { where: { id: bookId } });
-    res.json({ success: 'Book returned successfully', bookId: bookId });
 });
 
 

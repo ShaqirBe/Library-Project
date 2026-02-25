@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const db = require('../models'); 
 const Genre = db.Genre;
 const Language = db.Language; 
@@ -129,7 +127,7 @@ async function deleteLanguage(languageId) {
     return { success: true, message: 'Language deleted successfully.' };
 }
 
-// Get all languages
+// Get all authors
 async function getAllAuthors() {
     return await Author.findAll();
 }

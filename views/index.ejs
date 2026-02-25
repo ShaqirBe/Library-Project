@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>
-    DAB R2 • LMS
-  </title>
+  <title>Library Management System</title>
   <%- include('./partials/head.ejs') %>
 </head>
-
 <body>
-  <div class="container pt-5">
+  <%- include('./partials/navbar.ejs', { user: user }) %>
 
-    <div class="container-fluid mt-5 text-center">
-
-      <%- include('./partials/navbar.ejs', {user: user}) %>
-        <h1>
-          DAB Resit 2 - Library Management System
-        </h1>
-        <p>Welcome to the Resit 2 course assignment for DAB
+  <main class="container py-5 mt-5">
+    <section class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">Library Management System</h1>
+        <p class="lead text-muted mb-4">
+          Browse books, track borrowing activity, and manage genres, authors, and languages from one dashboard.
         </p>
-        <div>
-          <img src="/img/home.jpeg" alt="" class="logo">
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="/books" class="btn btn-primary">View Books</a>
+          <a href="/login" class="btn btn-outline-secondary">Sign In</a>
         </div>
-
-    </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="/img/home.jpeg" alt="Library shelves" class="logo rounded-3 shadow">
+      </div>
+    </section>
+  </main>
 </body>
-
 </html>

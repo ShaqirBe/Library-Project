@@ -1,3 +1,19 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Error • Library Management System</title>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs', { user: typeof user === 'undefined' ? null : user }) %>
+  <main class="container py-5 mt-5">
+    <div class="alert alert-danger">
+      <h1 class="h4 mb-2"><%= message %></h1>
+      <p class="mb-0">Status: <%= error.status || 500 %></p>
+    </div>
+    <% if (error && error.stack) { %>
+      <pre class="bg-light p-3 border rounded"><%= error.stack %></pre>
+    <% } %>
+  </main>
+</body>
+</html>
