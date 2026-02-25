@@ -1,0 +1,373 @@
+[
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 1,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 1,
+      "languageId": 3
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 1,
+      "languageId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 2,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 2,
+      "languageId": 4
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 2,
+      "languageId": 5
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 2,
+      "languageId": 6
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 3,
+      "languageId": 7
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 3,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 3,
+      "languageId": 3
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 4,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 4,
+      "languageId": 8
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 4,
+      "languageId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 5,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 5,
+      "languageId": 5
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 5,
+      "languageId": 9
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 5,
+      "languageId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 6,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 6,
+      "languageId": 3
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 6,
+      "languageId": 4
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 6,
+      "languageId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 7,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 7,
+      "languageId": 3
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 7,
+      "languageId": 4
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 7,
+      "languageId": 9
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 7,
+      "languageId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 8,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 8,
+      "languageId": 3
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 8,
+      "languageId": 4
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 8,
+      "languageId": 5
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 8,
+      "languageId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 9,
+      "languageId": 7
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 9,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 9,
+      "languageId": 3
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 9,
+      "languageId": 4
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 9,
+      "languageId": 5
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 9,
+      "languageId": 6
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 9,
+      "languageId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 10,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 10,
+      "languageId": 3
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 10,
+      "languageId": 4
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 10,
+      "languageId": 5
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 10,
+      "languageId": 9
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 10,
+      "languageId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 11,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 12,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 13,
+      "languageId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 13,
+      "languageId": 3
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 13,
+      "languageId": 4
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 13,
+      "languageId": 5
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 13,
+      "languageId": 9
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 13,
+      "languageId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO BookLanguages (BookId, LanguageId) VALUES (:bookId, :languageId);",
+    "replacements": {
+      "bookId": 14,
+      "languageId": 1
+    }
+  }
+]

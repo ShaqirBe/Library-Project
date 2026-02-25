@@ -1,0 +1,79 @@
+[
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 1,
+      "name": "Harper Lee"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 2,
+      "name": "George Orwell"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 3,
+      "name": "Jane Austen"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 4,
+      "name": "F. Scott Fitzgerald"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 5,
+      "name": "Gabriel Garcia Marquez"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 6,
+      "name": "J.D. Salinger"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 7,
+      "name": "Paulo Coelho"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 8,
+      "name": "J.K. Rowling"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 9,
+      "name": "J.R.R. Tolkien"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 10,
+      "name": "Miguel de Cervantes"
+    }
+  },
+  {
+    "query": "INSERT INTO Authors (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 11,
+      "name": "Antoine de Saint-Exupery"
+    }
+  }
+]

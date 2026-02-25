@@ -1,80 +1,115 @@
 var express = require('express');
 var router = express.Router();
-const booksDatabase = require('../services/booksDatabase');
-var { isAdmin, isAuthenticated } = require("../middleware/index");
+var { isAdmin, isAuthenticated } = require('../middleware/index');
 const db = require('../models');
-const { Op } = require('sequelize');
+const { QueryTypes } = require('sequelize');
 
-router.get('/', async function (req, res, next) {
+const baseBooksSelect = `
+SELECT
+  b.id,
+  a.name AS author,
+  b.title,
+  b.description,
+  b.publisher,
+  (YEAR(CURDATE()) - b.year) AS Age,
+  GROUP_CONCAT(DISTINCT l.name ORDER BY l.name SEPARATOR ', ') AS language,
+  g.name AS genre,
+  CASE WHEN COUNT(br.id) > 0 THEN 1 ELSE 0 END AS borrowed
+FROM Books b
+JOIN Authors a ON a.id = b.authorId
+JOIN Genres g ON g.id = b.genreId
+LEFT JOIN BookLanguages bl ON bl.BookId = b.id
+LEFT JOIN Languages l ON l.id = bl.LanguageId
+LEFT JOIN Borrows br ON br.bookId = b.id
+`;
+
+const baseBooksGroupBy = `
+GROUP BY
+  b.id, a.name, b.title, b.description, b.publisher, b.year, g.name
+`;
+
+async function runBookQuery(whereClause = '', havingClause = '', orderClause = '', replacements = {}) {
+    const sql = `${baseBooksSelect}
+${whereClause}
+${baseBooksGroupBy}
+${havingClause}
+${orderClause};`;
+
+    const rows = await db.sequelize.query(sql, {
+        type: QueryTypes.SELECT,
+        replacements
+    });
+
+    return rows.map((row) => ({
+        ...row,
+        borrowed: Boolean(row.borrowed)
+    }));
+}
+
+router.get('/', async function (req, res) {
     try {
-        let books = await booksDatabase.getAllBooks();
-		
-        const currentYear = new Date().getFullYear();
-
-        
-        books = books.map(book => ({
-            ...book.dataValues,
-            Age: currentYear - book.year
-        }));
-        res.render('books', { user: req.user, books: books });
+        const books = await runBookQuery('', '', 'ORDER BY b.id ASC');
+        res.render('books', { user: req.user, books });
     } catch (error) {
         console.error('Error fetching books:', error);
         res.status(500).send('Error fetching books');
     }
 });
 
-
-router.post('/borrow/:id', isAuthenticated, async function(req, res) {
+router.post('/borrow/:id', isAuthenticated, async function (req, res) {
     try {
-        const bookId = req.params.id;
-        const book = await booksDatabase.getBook(bookId);
+        if (req.user.Role !== 'member') {
+            return res.status(403).json({ error: 'Only members can borrow books' });
+        }
 
+        const bookId = Number(req.params.id);
+        const book = await db.Book.findByPk(bookId);
         if (!book) {
             return res.status(404).json({ error: 'Book not found' });
         }
 
-        if (book.borrowed) {
+        const existingBorrow = await db.Borrow.findOne({ where: { bookId } });
+        if (existingBorrow) {
             return res.status(400).json({ error: 'Book already borrowed' });
         }
-        
-        await book.update({ borrowed: true }, { where: { id: bookId } });
-        res.json({ success: true, message: 'Book borrowed successfully', bookId: bookId });
+
+        await db.Borrow.create({ userId: req.user.id, bookId });
+        await book.update({ borrowed: true });
+
+        res.json({ success: true, message: 'Book borrowed successfully', bookId });
     } catch (error) {
         console.error('Error borrowing book:', error);
         res.status(500).json({ error: 'Server error while borrowing book' });
     }
 });
 
-
-
-router.post('/return/:id', isAuthenticated, isAdmin, async function(req, res) {
+router.post('/return/:id', isAuthenticated, isAdmin, async function (req, res) {
     try {
-        const bookId = req.params.id;
-        const book = await booksDatabase.getBook(bookId);
-
+        const bookId = Number(req.params.id);
+        const book = await db.Book.findByPk(bookId);
         if (!book) {
             return res.status(404).json({ error: 'Book not found' });
         }
 
-        if (!book.borrowed) {
+        const borrowRecord = await db.Borrow.findOne({ where: { bookId } });
+        if (!borrowRecord) {
             return res.status(400).json({ error: 'Book is not borrowed' });
         }
 
-        await book.update({ borrowed: false }, { where: { id: bookId } });
-        res.json({ success: true, message: 'Book returned successfully', bookId: bookId });
+        await borrowRecord.destroy();
+        await book.update({ borrowed: false });
+
+        res.json({ success: true, message: 'Book returned successfully', bookId });
     } catch (error) {
         console.error('Error returning book:', error);
         res.status(500).json({ error: 'Server error while returning book' });
     }
 });
 
-
-// this is route handler for the selecting author
 router.post('/by-author', async (req, res) => {
     try {
-        const authorName = 'J.K. Rowling'; 
-        const booksByRowling = await db.Book.findAll({
-            where: { author: authorName }
+        const booksByRowling = await runBookQuery('WHERE a.name = :authorName', '', 'ORDER BY b.id ASC', {
+            authorName: 'J.K. Rowling'
         });
         res.json(booksByRowling);
     } catch (error) {
@@ -82,14 +117,10 @@ router.post('/by-author', async (req, res) => {
         res.status(500).send('Server error');
     }
 });
-// this is for the currently borrowed book
+
 router.post('/currently-borrowed', async (req, res) => {
     try {
-        
-        const borrowedBooks = await db.Book.findAll({
-            where: { borrowed: true }
-        });
-
+        const borrowedBooks = await runBookQuery('', 'HAVING COUNT(br.id) > 0', 'ORDER BY b.id ASC');
         res.json(borrowedBooks);
     } catch (error) {
         console.error('Error fetching currently borrowed books:', error);
@@ -97,14 +128,9 @@ router.post('/currently-borrowed', async (req, res) => {
     }
 });
 
-//This is for the order books by the age 
 router.post('/ordered-by-age', async (req, res) => {
     try {
-        
-        const booksOrderedByAge = await db.Book.findAll({
-            order: [['year', 'ASC']] 
-        });
-
+        const booksOrderedByAge = await runBookQuery('', '', 'ORDER BY b.year ASC');
         res.json(booksOrderedByAge);
     } catch (error) {
         console.error('Error ordering books by age:', error);
@@ -114,49 +140,42 @@ router.post('/ordered-by-age', async (req, res) => {
 
 router.post('/multilingual', async (req, res) => {
     try {
-        
-        const multilingualBooks = await db.Book.findAll({
-            where: db.sequelize.where(
-                db.sequelize.fn('CHAR_LENGTH', db.sequelize.fn('REPLACE', db.sequelize.col('language'), ',', '')),
-                '<', 
-                db.sequelize.fn('CHAR_LENGTH', db.sequelize.col('language'))
-            )
-        });
-
+        const multilingualBooks = await runBookQuery('', 'HAVING COUNT(DISTINCT l.id) > 1', 'ORDER BY b.id ASC');
         res.json(multilingualBooks);
     } catch (error) {
         console.error('Error fetching multilingual books:', error);
         res.status(500).send('Server error');
     }
 });
-router.post('/portuguese-books', async (req, res) => {
-    try {
-		
-        const portugeseBooks = await db.Book.findAll({
-            where: {
-                language: {
-                    [Op.like]: '%Portuguese%'
-                }
-            }
-        });
 
-        res.json({ books: portugeseBooks });
+router.post('/portuguese-books', isAuthenticated, isAdmin, async (req, res) => {
+    try {
+        const [result] = await db.sequelize.query(
+            `
+            SELECT COUNT(DISTINCT b.id) AS portugueseCount
+            FROM Books b
+            JOIN BookLanguages bl ON bl.BookId = b.id
+            JOIN Languages l ON l.id = bl.LanguageId
+            WHERE l.name = 'Portuguese';
+            `,
+            { type: QueryTypes.SELECT }
+        );
+
+        res.json({ count: Number(result.portugueseCount) || 0 });
     } catch (error) {
         console.error('Error counting Portuguese books:', error);
         res.status(500).send('Server error');
     }
 });
+
 router.post('/all', async (req, res) => {
     try {
-        const allBooks = await db.Book.findAll();
+        const allBooks = await runBookQuery('', '', 'ORDER BY b.id ASC');
         res.json({ books: allBooks });
     } catch (error) {
         console.error('Error fetching all books:', error);
         res.status(500).send('Server error');
     }
 });
-
-
-
 
 module.exports = router;

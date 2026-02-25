@@ -1,0 +1,65 @@
+[
+  {
+    "query": "INSERT INTO Languages (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 1,
+      "name": "English"
+    }
+  },
+  {
+    "query": "INSERT INTO Languages (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 2,
+      "name": "Spanish"
+    }
+  },
+  {
+    "query": "INSERT INTO Languages (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 3,
+      "name": "French"
+    }
+  },
+  {
+    "query": "INSERT INTO Languages (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 4,
+      "name": "German"
+    }
+  },
+  {
+    "query": "INSERT INTO Languages (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 5,
+      "name": "Italian"
+    }
+  },
+  {
+    "query": "INSERT INTO Languages (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 6,
+      "name": "Russian"
+    }
+  },
+  {
+    "query": "INSERT INTO Languages (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 7,
+      "name": "Chinese"
+    }
+  },
+  {
+    "query": "INSERT INTO Languages (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 8,
+      "name": "Japanese"
+    }
+  },
+  {
+    "query": "INSERT INTO Languages (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 9,
+      "name": "Portuguese"
+    }
+  }
+]

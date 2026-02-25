@@ -17,20 +17,7 @@
           <span class="col py-1 bg-noroff">Genre</span>
           <span class="col py-1 bg-noroff">Options</span>
         </div>
-        <% genres.forEach(function(item) { %>
-          <div class="row px-3 py-1 w-100">
-            <span class="col py-1 bg-light">
-              <%=item.id%>
-            </span>
-            <span class="col py-1 bg-light">
-              <%=item.name%>
-            </span>
-            <span class="col py-1 bg-light text-center">
-              <button class="btn-sm btn-warning" onclick="updateGenre( <%=item.id%>)">Update Genre</button>
-              <button class="btn-sm btn-danger" onclick="deleteGenre( <%=item.id%>)">Delete Genre</button>
-            </span>
-          </div>
-          <% }); %>
+        <div id="genres-results"></div>
             <hr>
             <div class="row">
               <div class="col-4"></div>
@@ -44,6 +31,31 @@
             </div>
       </div>
     </div>
+    <script>
+      fetch('/genres/list', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        const container = document.getElementById('genres-results');
+        container.innerHTML = '';
+        (data.genres || []).forEach((item) => {
+          const row = document.createElement('div');
+          row.className = 'row px-3 py-1 w-100';
+          row.innerHTML = `
+            <span class="col py-1 bg-light">${item.id}</span>
+            <span class="col py-1 bg-light">${item.name}</span>
+            <span class="col py-1 bg-light text-center">
+              <button class="btn-sm btn-warning" onclick="updateGenre(${item.id})">Update Genre</button>
+              <button class="btn-sm btn-danger" onclick="deleteGenre(${item.id})">Delete Genre</button>
+            </span>
+          `;
+          container.appendChild(row);
+        });
+      })
+      .catch((error) => console.error('Error loading genres:', error));
+    </script>
 </body>
 
 </html>

@@ -10,6 +10,9 @@
 
 <body>
   <%- include('./partials/navbar.ejs', {user: user}) %>
+    <script>
+      window.currentUserRole = "<%= user ? user.Role : '' %>";
+    </script>
     <div class="container-fluid mt-5">
       <h2 class="p-3 text-center">Library Books</h2>
       <div class="list-group">
@@ -27,7 +30,11 @@
             <button class="btn-sm btn-success" onclick="sqlQuery4()">All multilingual books</button>
           </span>
           <span class="col-2 py-1 bg-light text-center">
-            <button class="btn-sm btn-success" onclick="sqlQuery5()">Number of Portuguese books</button>
+            <% if (user && user.Role === 'admin') { %>
+              <button class="btn-sm btn-success" onclick="sqlQuery5()">Number of Portuguese books</button>
+            <% } else { %>
+              <button class="btn-sm btn-secondary" disabled>Number of Portuguese books</button>
+            <% } %>
           </span>
           <span class="col-2 py-1 bg-light text-center">
             <button class="btn-sm btn-warning" onclick="allBooks()">All Books</button>
@@ -46,42 +53,52 @@
           <span class="col-1 py-1 bg-noroff text-center">Options</span>
 
         </div>
-        <% books.forEach(function(item) { %>
-          <div class="row px-3 py-1">
-            <span class="col-1 py-1 bg-light">
-              <%=item.id%>
-            </span>
-            <span class="col-1 py-1 bg-light">
-              <%=item.author%>
-            </span>
-            <span class="col-1 py-1 bg-light">
-              <%=item.title%>
-            </span>
-            <span class="col-2 py-1 bg-light">
-              <%=item.description%>
-            </span>
-            <span class="col-1 py-1 bg-light">
-              <%=item.publisher%>
-            </span>
-            <span class="col-1 py-1 bg-light">
-              <%=item.Age%>
-            </span>
-            <span class="col-2 py-1 bg-light">
-              <%=item.language%>
-            </span>
-            <span class="col-1 py-1 bg-light">
-              <%=item.genre%>
-            </span>
-            <span class="col-1 py-1 bg-light">
-              <%=item.borrowed%>
-            </span>
-            <span class="col-1 py-1 bg-light text-center">
-              <button class="btn-sm btn-warning" onclick="bookoutBook(<%=item.id%>)">Borrow</button>
-              <button class="btn-sm btn-danger" onclick="returnBook(<%=item.id%>)">Return</button>
-            </span>
-          </div>
+        <div id="books-results">
+          <% books.forEach(function(item) { %>
+            <div class="row px-3 py-1">
+              <span class="col-1 py-1 bg-light">
+                <%=item.id%>
+              </span>
+              <span class="col-1 py-1 bg-light">
+                <%=item.author%>
+              </span>
+              <span class="col-1 py-1 bg-light">
+                <%=item.title%>
+              </span>
+              <span class="col-2 py-1 bg-light">
+                <%=item.description%>
+              </span>
+              <span class="col-1 py-1 bg-light">
+                <%=item.publisher%>
+              </span>
+              <span class="col-1 py-1 bg-light">
+                <%=item.Age%>
+              </span>
+              <span class="col-2 py-1 bg-light">
+                <%=item.language%>
+              </span>
+              <span class="col-1 py-1 bg-light">
+                <%=item.genre%>
+              </span>
+              <span class="col-1 py-1 bg-light">
+                <%=item.borrowed%>
+              </span>
+              <span class="col-1 py-1 bg-light text-center">
+                <% if (user && user.Role === 'member') { %>
+                  <button class="btn-sm btn-warning" onclick="bookoutBook(<%=item.id%>)">Borrow</button>
+                <% } else { %>
+                  <button class="btn-sm btn-secondary" disabled>Borrow</button>
+                <% } %>
+                <% if (user && user.Role === 'admin') { %>
+                  <button class="btn-sm btn-danger" onclick="returnBook(<%=item.id%>)">Return</button>
+                <% } else { %>
+                  <button class="btn-sm btn-secondary" disabled>Return</button>
+                <% } %>
+              </span>
+            </div>
           <% }); %>
-            <hr>
+        </div>
+        <hr>
 
       </div>
     </div>

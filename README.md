@@ -1,51 +1,52 @@
-# Library Management System
+# Library Management System (DAB Resit 2)
 
-An Express + Sequelize web application for managing books, borrowing status, authors, genres, languages, and user authentication.
-
-## Features
-- User signup and login with hashed passwords
-- Session-based authentication with Passport
-- Books listing with borrow/return actions
-- Admin management for genres, authors, and languages
-- MySQL database integration via Sequelize
-
-## Tech Stack
-- Node.js
-- Express
-- EJS
-- Sequelize
-- MySQL
-- Passport (local strategy)
-
-## Setup
-1. Clone the repository.
+## Application Installation and Usage Instructions
+1. Clone the repository from the GitHub Classroom link.
 2. Install dependencies:
    - `npm install`
 3. Create environment file:
    - `cp .env.example .env`
-4. Update `.env` with your database credentials and a strong session secret.
-5. Create the database:
-   - `CREATE DATABASE librarydb;`
-6. Start the app:
+4. Fill `.env` values for MySQL.
+5. Start the app:
    - `npm start`
-7. Open:
+6. Open:
    - [http://localhost:3000](http://localhost:3000)
 
 ## Environment Variables
-- `DATABASE_NAME`
-- `ADMIN_USERNAME`
-- `ADMIN_PASSWORD`
-- `DIALECT` (set to `mysql`)
-- `HOST`
-- `SESSION_SECRET`
-
-## Database User (Optional)
-```sql
-CREATE USER 'your_db_user'@'localhost' IDENTIFIED BY 'your_db_password';
-GRANT ALL PRIVILEGES ON `librarydb`.* TO 'your_db_user'@'localhost';
-FLUSH PRIVILEGES;
+```env
+DATABASE_NAME=librarydb
+ADMIN_USERNAME=dabcaowner
+ADMIN_PASSWORD=dabca1234
+DIALECT=mysql
+HOST=localhost
+SESSION_SECRET=replace-with-a-strong-secret
 ```
 
-## Notes
-- Initial seed data is inserted only when related tables are empty.
-- `.env` is ignored by Git; use `.env.example` as the template.
+## Additional Libraries/Packages Used
+- cookie-parser
+- debug
+- dotenv
+- ejs
+- express
+- express-session
+- http-errors
+- morgan
+- mysql2
+- passport
+- passport-local
+- sequelize
+
+## NodeJS Version Used
+- Node.js v22
+
+## DATABASE
+```sql
+CREATE DATABASE `librarydb`;
+```
+
+## DATABASEACCESS
+```sql
+CREATE USER 'dabcaowner'@'localhost' IDENTIFIED BY 'dabca1234';
+GRANT ALL PRIVILEGES ON `librarydb`.* TO 'dabcaowner'@'localhost';
+FLUSH PRIVILEGES;
+```

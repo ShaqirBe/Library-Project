@@ -196,8 +196,19 @@ function sqlQuery5() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
     })
-    .then((response) => response.json())
-    .then((data) => updateBooksTable(data.books))
+    .then((response) => {
+        if (response.status === 403) {
+            alert('Only admins can run this query.');
+            return null;
+        }
+        return response.json();
+    })
+    .then((data) => {
+        if (!data) {
+            return;
+        }
+        alert('Number of Portuguese books: ' + data.count);
+    })
     .catch((error) => console.error('Error:', error));
 }
 
@@ -212,7 +223,7 @@ function allBooks() {
 }
 
 function updateBooksTable(books) {
-    const booksContainer = document.querySelector('.list-group');
+    const booksContainer = document.getElementById('books-results');
     if (!booksContainer) {
         return;
     }
@@ -223,6 +234,13 @@ function updateBooksTable(books) {
     books.forEach((book) => {
         const age = book.Age !== undefined ? book.Age : (book.year ? currentYear - book.year : '');
         const language = book.language || book.languages || '';
+        const role = window.currentUserRole || '';
+        const borrowButton = role === 'member'
+            ? `<button class=\"btn-sm btn-warning\" onclick=\"bookoutBook('${book.id}')\">Borrow</button>`
+            : '<button class=\"btn-sm btn-secondary\" disabled>Borrow</button>';
+        const returnButton = role === 'admin'
+            ? `<button class=\"btn-sm btn-danger\" onclick=\"returnBook('${book.id}')\">Return</button>`
+            : '<button class=\"btn-sm btn-secondary\" disabled>Return</button>';
 
         const bookRow = document.createElement('div');
         bookRow.className = 'row px-3 py-1';
@@ -237,8 +255,8 @@ function updateBooksTable(books) {
         <span class="col-1 py-1 bg-light">${book.genre || ''}</span>
         <span class="col-1 py-1 bg-light">${book.borrowed ? 'Borrowed' : 'Available'}</span>
         <span class="col-1 py-1 bg-light text-center">
-          <button class="btn-sm btn-warning" onclick="bookoutBook('${book.id}')">Borrow</button>
-          <button class="btn-sm btn-danger" onclick="returnBook('${book.id}')">Return</button>
+          ${borrowButton}
+          ${returnButton}
         </span>
       `;
 

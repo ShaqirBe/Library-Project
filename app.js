@@ -13,7 +13,6 @@ var genresRouter = require('./routes/genres');
 var languagesRouter = require('./routes/languages');
 var authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
-var authorsRouter = require('./routes/authors');
 var db = require("./models");
 const dbPopulate = require('./services/populateDatabase'); 
 
@@ -28,20 +27,33 @@ async function initializeDatabase() {
         db.Language.count()
     ]);
 
-    if (bookCount === 0) {
-        await dbPopulate.populateBooks();
+    if (authorCount === 0) {
+        await dbPopulate.populateAuthors();
+    }
+    if (genreCount === 0) {
+        await dbPopulate.populateGenres();
+    }
+    if (languageCount === 0) {
+        await dbPopulate.populateLanguages();
     }
     if (userCount === 0) {
         await dbPopulate.populateUsers();
     }
-    if (authorCount === 0) {
-        await dbPopulate.populateAuthor();
+    if (bookCount === 0) {
+        await dbPopulate.populateBooks();
     }
-    if (genreCount === 0) {
-        await dbPopulate.populateGenre();
+
+    const [bookLanguageResult, borrowCount] = await Promise.all([
+        db.sequelize.query('SELECT COUNT(*) AS count FROM BookLanguages;'),
+        db.Borrow.count()
+    ]);
+    const bookLanguageCount = Number(bookLanguageResult[0][0].count) || 0;
+
+    if (bookLanguageCount === 0) {
+        await dbPopulate.populateBookLanguages();
     }
-    if (languageCount === 0) {
-        await dbPopulate.populateLanguage();
+    if (borrowCount === 0) {
+        await dbPopulate.populateBorrows();
     }
 }
 
@@ -71,7 +83,6 @@ app.use('/', indexRouter);
 app.use('/books', booksRouter);
 app.use('/genres', genresRouter);
 app.use('/languages', languagesRouter);
-app.use('/authors', authorsRouter);
 app.use('/', authRouter);
 app.use('/users', usersRouter);
 

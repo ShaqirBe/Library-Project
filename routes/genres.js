@@ -4,12 +4,16 @@ const booksDatabase = require('../services/booksDatabase');
 const { isAdmin, isAuthenticated } = require('../middleware/index');
 
 router.get('/', isAuthenticated, async function(req, res) {
+    res.render('genres', { user: req.user, genres: [] });
+});
+
+router.post('/list', isAuthenticated, async function(req, res) {
     try {
         const genres = await booksDatabase.getAllGenres();
-        res.render('genres', { user: req.user,genres });
+        res.json({ genres });
     } catch (error) {
         console.error('Error fetching genres:', error);
-        res.status(500).send('Error fetching genres');
+        res.status(500).json({ success: false, message: 'Error fetching genres' });
     }
 });
 // Add a new genre (only accessible to admin)

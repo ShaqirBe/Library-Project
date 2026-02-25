@@ -1,0 +1,184 @@
+[
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 1,
+      "title": "To Kill a Mockingbird",
+      "description": "A classic novel about injustice in a small Southern town.",
+      "publisher": "HarperCollins",
+      "year": 1960,
+      "borrowed": false,
+      "authorId": 1,
+      "genreId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 2,
+      "title": "1984",
+      "description": "A dystopian novel depicting a totalitarian society.",
+      "publisher": "Signet Classics",
+      "year": 1949,
+      "borrowed": true,
+      "authorId": 2,
+      "genreId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 3,
+      "title": "Pride and Prejudice",
+      "description": "A classic novel exploring love, marriage, and social class.",
+      "publisher": "Penguin Classics",
+      "year": 1813,
+      "borrowed": false,
+      "authorId": 3,
+      "genreId": 3
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 4,
+      "title": "The Great Gatsby",
+      "description": "A story of wealth, love, and the American Dream in the Jazz Age.",
+      "publisher": "Scribner",
+      "year": 1921,
+      "borrowed": false,
+      "authorId": 4,
+      "genreId": 4
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 5,
+      "title": "One Hundred Years of Solitude",
+      "description": "A landmark novel blending reality and fantasy in the fictional town of Macondo.",
+      "publisher": "Harper Perennial",
+      "year": 1967,
+      "borrowed": false,
+      "authorId": 5,
+      "genreId": 5
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 6,
+      "title": "The Catcher in the Rye",
+      "description": "A novel following the rebellious journey of a teenager in New York City.",
+      "publisher": "Back Bay Books",
+      "year": 1951,
+      "borrowed": true,
+      "authorId": 6,
+      "genreId": 6
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 7,
+      "title": "The Alchemist",
+      "description": "A philosophical novel about a young shepherd's journey to find his personal legend.",
+      "publisher": "HarperOne",
+      "year": 1988,
+      "borrowed": false,
+      "authorId": 7,
+      "genreId": 1
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 8,
+      "title": "Harry Potter and the Philosopher's Stone",
+      "description": "The first book in the popular Harry Potter series about a young wizard.",
+      "publisher": "Bloomsbury Publishing",
+      "year": 1997,
+      "borrowed": false,
+      "authorId": 8,
+      "genreId": 7
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 9,
+      "title": "The Lord of the Rings",
+      "description": "An epic high fantasy trilogy set in the world of Middle-earth.",
+      "publisher": "Houghton Mifflin Harcourt",
+      "year": 1954,
+      "borrowed": false,
+      "authorId": 9,
+      "genreId": 7
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 10,
+      "title": "Don Quixote",
+      "description": "A comedic novel about a deluded knight and his adventures.",
+      "publisher": "Harper Perennial",
+      "year": 1605,
+      "borrowed": false,
+      "authorId": 10,
+      "genreId": 8
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 11,
+      "title": "Fantastic Beasts and Where to Find Them",
+      "description": "A companion book to the Harry Potter series, cataloguing magical creatures.",
+      "publisher": "Bloomsbury Publishing",
+      "year": 2001,
+      "borrowed": false,
+      "authorId": 8,
+      "genreId": 7
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 12,
+      "title": "Quidditch Through the Ages",
+      "description": "A companion book to the Harry Potter series, detailing the history of Quidditch.",
+      "publisher": "Bloomsbury Publishing",
+      "year": 2001,
+      "borrowed": false,
+      "authorId": 8,
+      "genreId": 7
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 13,
+      "title": "The Little Prince",
+      "description": "A poetic novella exploring the nature of friendship and love.",
+      "publisher": "Houghton Mifflin Harcourt",
+      "year": 1943,
+      "borrowed": false,
+      "authorId": 11,
+      "genreId": 9
+    }
+  },
+  {
+    "query": "INSERT INTO Books (id, title, description, publisher, year, borrowed, authorId, genreId) VALUES (:id, :title, :description, :publisher, :year, :borrowed, :authorId, :genreId);",
+    "replacements": {
+      "id": 14,
+      "title": "The Tales of Beedle the Bard",
+      "description": "A collection of wizarding fairy tales mentioned in the Harry Potter series.",
+      "publisher": "Bloomsbury Publishing",
+      "year": 2008,
+      "borrowed": true,
+      "authorId": 8,
+      "genreId": 7
+    }
+  }
+]

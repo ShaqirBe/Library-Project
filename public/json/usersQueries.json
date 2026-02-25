@@ -1,0 +1,35 @@
+[
+  {
+    "query": "INSERT INTO Users (id, FirstName, LastName, Username, Password, Role) VALUES (:id, :FirstName, :LastName, :Username, :Password, :Role);",
+    "replacements": {
+      "id": 1,
+      "FirstName": "System admin",
+      "LastName": null,
+      "Username": "Admin",
+      "Password": "admin1234",
+      "Role": "admin"
+    }
+  },
+  {
+    "query": "INSERT INTO Users (id, FirstName, LastName, Username, Password, Role) VALUES (:id, :FirstName, :LastName, :Username, :Password, :Role);",
+    "replacements": {
+      "id": 2,
+      "FirstName": "User",
+      "LastName": null,
+      "Username": "User",
+      "Password": "user1234",
+      "Role": "member"
+    }
+  },
+  {
+    "query": "INSERT INTO Users (id, FirstName, LastName, Username, Password, Role) VALUES (:id, :FirstName, :LastName, :Username, :Password, :Role);",
+    "replacements": {
+      "id": 3,
+      "FirstName": "User2",
+      "LastName": null,
+      "Username": "User2",
+      "Password": "User1234",
+      "Role": "member"
+    }
+  }
+]

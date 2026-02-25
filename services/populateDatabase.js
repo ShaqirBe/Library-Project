@@ -1,53 +1,55 @@
 const fs = require('fs');
 const path = require('path');
-const db = require('../models'); 
-const bcrypt = require('bcryptjs');
+const db = require('../models');
 
-async function populateBooks() {
-    const filePath = path.join(__dirname, '../public/json/books.json');
-    const books = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+function readQueryFile(fileName) {
+    const filePath = path.join(__dirname, '../public/json', fileName);
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
 
-    await db.Book.bulkCreate(books);
+async function executeQueries(fileName) {
+    const entries = readQueryFile(fileName);
+    for (const entry of entries) {
+        await db.sequelize.query(entry.query, {
+            replacements: entry.replacements || {}
+        });
+    }
+}
+
+async function populateAuthors() {
+    await executeQueries('authorsQueries.json');
+}
+
+async function populateGenres() {
+    await executeQueries('genresQueries.json');
+}
+
+async function populateLanguages() {
+    await executeQueries('languagesQueries.json');
 }
 
 async function populateUsers() {
-    const filePath = path.join(__dirname, '../public/json/users.json');
-    const users = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-    const normalizedUsers = await Promise.all(users.map(async (user) => ({
-        FirstName: user.FirstName,
-        LastName: user.LastName || null,
-        Username: user.Username,
-        Password: await bcrypt.hash(user.Password, 10),
-        Role: user.Role
-    })));
-
-    await db.User.bulkCreate(normalizedUsers);
+    await executeQueries('usersQueries.json');
 }
 
-async function populateAuthor() {
-    const filePath = path.join(__dirname, '../public/json/author.json');
-    const authors = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-    await db.Author.bulkCreate(authors);
+async function populateBooks() {
+    await executeQueries('booksQueries.json');
 }
-async function populateGenre() {
-    const filePath = path.join(__dirname, '../public/json/genre.json');
-    const genres = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-    await db.Genre.bulkCreate(genres.map((genre) => ({ name: genre.genre })));
+async function populateBookLanguages() {
+    await executeQueries('bookLanguagesQueries.json');
 }
-async function populateLanguage() {
-    const filePath = path.join(__dirname, '../public/json/language.json');
-    const languages = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-    await db.Language.bulkCreate(languages);
+async function populateBorrows() {
+    await executeQueries('borrowsQueries.json');
 }
+
 module.exports = {
-    populateBooks,
+    populateAuthors,
+    populateGenres,
+    populateLanguages,
     populateUsers,
-    populateAuthor,
-    populateGenre,
-    populateLanguage,
-    //populateBookLanguages
+    populateBooks,
+    populateBookLanguages,
+    populateBorrows
 };

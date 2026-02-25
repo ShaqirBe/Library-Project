@@ -1,0 +1,26 @@
+[
+  {
+    "query": "INSERT INTO Borrows (id, userId, bookId, borrowDate, returnDate, createdAt, updatedAt) VALUES (:id, :userId, :bookId, NOW(), NULL, NOW(), NOW());",
+    "replacements": {
+      "id": 1,
+      "userId": 2,
+      "bookId": 2
+    }
+  },
+  {
+    "query": "INSERT INTO Borrows (id, userId, bookId, borrowDate, returnDate, createdAt, updatedAt) VALUES (:id, :userId, :bookId, NOW(), NULL, NOW(), NOW());",
+    "replacements": {
+      "id": 2,
+      "userId": 2,
+      "bookId": 6
+    }
+  },
+  {
+    "query": "INSERT INTO Borrows (id, userId, bookId, borrowDate, returnDate, createdAt, updatedAt) VALUES (:id, :userId, :bookId, NOW(), NULL, NOW(), NOW());",
+    "replacements": {
+      "id": 3,
+      "userId": 2,
+      "bookId": 14
+    }
+  }
+]

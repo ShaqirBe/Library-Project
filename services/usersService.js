@@ -1,5 +1,3 @@
-const bcrypt = require('bcryptjs');
-
 class UserService {
     constructor(db) {
         this.client = db.sequelize;
@@ -8,13 +6,12 @@ class UserService {
     }
 
     async create(firstName, lastName, username, password) {
-        const hashedPassword = await bcrypt.hash(password, 10);
         return this.User.create(
             {
                 FirstName: firstName,
                 LastName: lastName,
                 Username: username,
-                Password: hashedPassword
+                Password: password
             }
         ) 
     }

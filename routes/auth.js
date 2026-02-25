@@ -1,7 +1,6 @@
 var express = require('express');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
-var bcrypt = require('bcryptjs');
 var db = require("../models");
 var UserService = require("../services/usersService");
 var userService = new UserService(db);
@@ -13,8 +12,7 @@ passport.use(new LocalStrategy(async function verify(username, password, cb) {
           return cb(null, false, { message: 'Incorrect username or password.' });
       }
 
-      const passwordMatches = await bcrypt.compare(password, data.Password);
-      if (!passwordMatches) {
+      if (data.Password !== password) {
           return cb(null, false, { message: 'Incorrect username or password.' });
       }
 

@@ -6,12 +6,16 @@ const { isAdmin } = require('../middleware');
 
 // Get all languages
 router.get('/', isAdmin, async function(req, res) {
+    res.render('languages', { user: req.user, languages: [] });
+});
+
+router.post('/list', isAdmin, async function(req, res) {
     try {
         const languages = await booksDatabase.getAllLanguages();
-        res.render('languages', { user: req.user, languages });
+        res.json({ languages });
     } catch (error) {
         console.error('Error fetching languages:', error);
-        res.status(500).send('Error fetching languages');
+        res.status(500).json({ success: false, message: 'Error fetching languages' });
     }
 });
 

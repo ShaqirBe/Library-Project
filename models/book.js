@@ -6,12 +6,17 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         title: DataTypes.STRING,
-        author: DataTypes.STRING,
-        genre: DataTypes.STRING,
         description: DataTypes.TEXT,
         publisher: DataTypes.STRING,
         year: DataTypes.INTEGER,
-        language: DataTypes.STRING,
+        authorId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        genreId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         borrowed: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
@@ -22,8 +27,8 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     });
     Book.associate = function(models) {
+        Book.belongsTo(models.Author, { foreignKey: 'authorId' });
         Book.belongsTo(models.Genre, { foreignKey: 'genreId' });
-        // Book.belongsTo(models.Author, { foreignKey: 'authorId' });
         Book.belongsToMany(models.Language, { through: 'BookLanguages' });
         Book.hasMany(models.Borrow, { foreignKey: 'bookId' });
     };

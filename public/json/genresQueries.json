@@ -1,0 +1,65 @@
+[
+  {
+    "query": "INSERT INTO Genres (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 1,
+      "name": "Fiction"
+    }
+  },
+  {
+    "query": "INSERT INTO Genres (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 2,
+      "name": "Dystopian"
+    }
+  },
+  {
+    "query": "INSERT INTO Genres (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 3,
+      "name": "Romance"
+    }
+  },
+  {
+    "query": "INSERT INTO Genres (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 4,
+      "name": "Classic"
+    }
+  },
+  {
+    "query": "INSERT INTO Genres (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 5,
+      "name": "Magical Realism"
+    }
+  },
+  {
+    "query": "INSERT INTO Genres (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 6,
+      "name": "Coming-of-Age"
+    }
+  },
+  {
+    "query": "INSERT INTO Genres (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 7,
+      "name": "Fantasy"
+    }
+  },
+  {
+    "query": "INSERT INTO Genres (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 8,
+      "name": "Satire"
+    }
+  },
+  {
+    "query": "INSERT INTO Genres (id, name) VALUES (:id, :name);",
+    "replacements": {
+      "id": 9,
+      "name": "Children's"
+    }
+  }
+]
