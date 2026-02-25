@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DAB R2 • LMS</title>
+  <%- include('./partials/head.ejs') %>
+    <script src="/js/common.js"></script>
+</head>
+
+<body>
+  <%- include('./partials/navbar.ejs', {user: user}) %>
+    <div class="container-fluid mt-5">
+      <h2 class="p-3 text-center">Library Management System - Genres</h2>
+      <div class="list-group">
+        <div class="row px-3 py-1 w-100">
+          <span class="col py-1 bg-noroff">Id</span>
+          <span class="col py-1 bg-noroff">Genre</span>
+          <span class="col py-1 bg-noroff">Options</span>
+        </div>
+        <% genres.forEach(function(item) { %>
+          <div class="row px-3 py-1 w-100">
+            <span class="col py-1 bg-light">
+              <%=item.id%>
+            </span>
+            <span class="col py-1 bg-light">
+              <%=item.name%>
+            </span>
+            <span class="col py-1 bg-light text-center">
+              <button class="btn-sm btn-warning" onclick="updateGenre( <%=item.id%>)">Update Genre</button>
+              <button class="btn-sm btn-danger" onclick="deleteGenre( <%=item.id%>)">Delete Genre</button>
+            </span>
+          </div>
+          <% }); %>
+            <hr>
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-4 text-center mt-2">
+                <form action="/genres/add" method="POST" class="d-flex gap-2 justify-content-center">
+                  <input class="form-control" type="text" name="name" placeholder="Genre name" required>
+                  <button class="btn btn-success" id="btn-add-genre">Add New Genre</button>
+                </form>
+              </div>
+              <div class="col-4"></div>
+            </div>
+      </div>
+    </div>
+</body>
+
+</html>

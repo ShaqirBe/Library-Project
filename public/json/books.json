@@ -1,0 +1,158 @@
+
+[
+    {
+      "id": 1,
+      "borrowed": false,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "genre": "Fiction",
+      "year": 1960,
+      "language": ["English','French','Spanish"],
+      "publisher": "HarperCollins",
+      "description": "A classic novel about injustice in a small Southern town."
+      
+    },
+    {
+      "id": 2,
+      "borrowed": true,
+      "title": "1984",
+      "author": "George Orwell",
+      "genre": "Dystopian",
+      "year": 1949,
+      "language": ["English', 'German', 'Italian', 'Russian"],
+      "publisher": "Signet Classics",
+      "description": "A dystopian novel depicting a totalitarian society."
+    },
+    {
+      "id": 3,
+      "borrowed": false,
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "genre": "Romance",
+      "year": 1813,
+      "language": ["Chinese','English','French"],
+      "publisher": "Penguin Classics",
+      "description": "A classic novel exploring love, marriage, and social class."
+    },
+    {
+      "id": 4,
+      "borrowed": false,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "genre": "Classic",
+      "year": 1925,
+      "language": ["English', 'Japanese', 'Spanish"],
+      "publisher": "Scribner",
+      "description": "A story of wealth, love, and the American Dream in the Jazz Age."
+    },
+    {
+      "id": 5,
+      "borrowed": false,
+      "title": "One Hundred Years of Solitude",
+      "author": "Gabriel Garcia Marquez",
+      "genre": "Magical Realism",
+      "year": 1967,
+      "language": ["English', 'Italian', 'Portuguese', 'Spanish"],
+      "publisher": "Harper Perennial",
+      "description": "A landmark novel blending reality and fantasy in the fictional town of Macondo."
+    },
+    {
+      "id": 6,
+      "borrowed": true,
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "genre": "Coming-of-Age",
+      "year": 1951,
+      "language": ["English', 'French', 'German', 'Spanish"],
+      "publisher": "Back Bay Books",
+      "description": "A novel following the rebellious journey of a teenager in New York City."
+    },
+    {
+      "id": 7,
+      "borrowed": false,
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "genre": "Fiction",
+      "year": 1988,
+      "language": ["English', 'French', 'German', 'Portuguese', 'Spanish"],
+      "publisher": "HarperOne",
+      "description": "A philosophical novel about a young shepherd's journey to find his personal legend."
+    },
+    {
+      "id": 8,
+      "borrowed": false,
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "genre": "Fantasy",
+      "year": 1997,
+      "language": ["English', 'French', 'German', 'Italian', 'Spanish"],
+      "publisher": "Bloomsbury Publishing",
+      "description": "The first book in the popular Harry Potter series about a young wizard."
+    },
+    {
+      "id": 9,
+      "borrowed": false,
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "genre": "Fantasy",
+      "year": 1954,
+      "language": ["Chinese', 'English', 'French','German', 'Italian', 'Russian', 'Spanish"],
+      "publisher": "Houghton Mifflin Harcourt",
+      "description": "An epic high fantasy trilogy set in the world of Middle-earth."
+    },
+    {
+      "id": 10,
+      "borrowed": false,
+      "title": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "genre": "Satire",
+      "year": 1605,
+      "language": ["English', 'French', 'German', 'Italian', 'Portuguese', 'Spanish"],
+      "publisher": "Harper Perennial",
+      "description": "A comedic novel about a deluded knight and his adventures."
+    },
+    {
+      "id": 11,
+      "borrowed": false,
+      "title": "Fantastic Beasts and Where to Find Them",
+      "author": "J.K. Rowling",
+      "genre": "Fantasy",
+      "year": 2001,
+      "language": ["English"],
+      "publisher": "Bloomsbury Publishing",
+      "description": "A companion book to the Harry Potter series, catalouging magical creatures."
+    },
+    {
+      "id": 12,
+      "borrowed": false,
+      "title": "Quidditch Through the Ages",
+      "author": "J.K. Rowling",
+      "genre": "Fantasy",
+      "year": 2001,
+      "language": ["English"],
+      "publisher": "Bloomsbury Publishing",
+      "description": "A companion book to the Harry Potter series, detailing the history of Quidditch."
+    },
+    {
+      "id": 13,
+      "borrowed": false,
+      "title": "The Little Prince",
+      "author": "Antoine de Saint-Exupéry",
+      "genre": "Children's",
+      "year": 1943,
+      "language": ["English', 'French', 'German', 'Italian', 'Portuguese', 'Spanish"],
+      "publisher": "Houghton Mifflin Harcourt",
+      "description": "A poetic novella exploring the nature of friendship and love."
+    },
+    {
+      "id": 14,
+      "borrowed": true,
+      "title": "The Tales of Beedle the Bard",
+      "author": "J.K. Rowling",
+      "genre": "Fantasy",
+      "year": 2008,
+      "language": ["English"],
+      "publisher": "Bloomsbury Publishing",
+      "description": "A collection of wizarding fairy tales mentioned in the Harry Potter series."
+    }
+  ]

@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "English"
+    },
+    {
+        "id": 2,
+        "name": "Spanish"
+    },
+    {
+        "id": 3,
+        "name": "French"
+    },
+    {
+        "id": 4,
+        "name": "German"
+    },
+    {
+        "id": 5,
+        "name": "Italian"
+    },
+    {
+        "id": 6,
+        "name": "Russian"
+    },
+    {
+        "id": 7,
+        "name": "Chinese"
+    },
+    {
+        "id": 8,
+        "name": "Japanese"
+    },
+    {
+        "id": 9,
+        "name": "Portuguese"
+    },
+    {
+        "id": 10,
+        "name": "Italian"
+    }
+]

@@ -1,0 +1,46 @@
+[
+    {
+        "id":1,
+        "name": "Harper Lee"
+    },
+    {
+        "id":2,
+        "name": "George Orwell"
+    },
+    {
+        "id":3,
+        "name": "Jane Austen"
+    },
+    {
+        "id":4,
+        "name": "F. Scott Fitzgerald"
+    },
+    {
+        "id":5,
+        "name": "Gabriel Garcia Marquez"
+    },
+    {
+        "id":6,
+        "name": "J.D. Salinger"
+    },
+    {
+        "id":7,
+        "name": "Paulo Coelho"
+    },
+    {
+        "id":8,
+        "name": "J.K. Rowling"
+    },
+    {
+        "id":9,
+        "name": "J.R.R. Tolkien"
+    },
+    {
+        "id":10,
+        "name": "Miguel de Cervantes"
+    },
+    {
+        "id":11,
+        "name": "Antoine de Saint-Exupéry"
+    }
+]

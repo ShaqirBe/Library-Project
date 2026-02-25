@@ -1,0 +1,14 @@
+.bg-noroff {
+	background: #ff7878;
+	color: white;
+}
+
+.logo {
+	width: 80% !important;
+}
+
+.logo_icon {
+	width: 32px;
+	padding-right: 5px;
+}
+

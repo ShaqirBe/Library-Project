@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "genre": "Fiction"
+    },
+    {
+        "id":2,
+        "genre": "Dystopian"
+    },
+    {
+        "id":3,
+        "genre": "Romance"
+    },
+    {
+        "id":4,
+        "genre": "Classic"
+    },
+    {
+        "id": 5,
+        "genre": "Magical Realism"
+    },
+    {
+        "id":5,
+        "genre": "Coming-of-Age"
+    },
+    {
+        "id":6,
+        "genre": "Fantasy"
+    },
+    {
+        "id":7,
+        "genre": "Satire"
+    },
+    {
+        "id":8,
+        "genre": "Children's"
+    }
+]

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DAB R2 • LMS</title>
+  <%- include('./partials/head.ejs') %>
+    <script src="/js/common.js"></script>
+
+</head>
+
+<body>
+  <%- include('./partials/navbar.ejs', {user: user}) %>
+    <div class="container-fluid mt-5">
+      <h2 class="p-3 text-center">Library Books</h2>
+      <div class="list-group">
+        <div class="row px-3 py-1 w-100% text-center">
+          <span class="col-2 py-1 bg-light text-center">
+            <button class="btn-sm btn-success" onclick="sqlQuery1()">Show all books by J.K. Rowling</button>
+          </span>
+          <span class="col-2 py-1 bg-light text-center">
+            <button class="btn-sm btn-success" onclick="sqlQuery2()">Show currently borrowed books</button>
+          </span>
+          <span class="col-2 py-1 bg-light text-center">
+            <button class="btn-sm btn-success" onclick="sqlQuery3()">Order books by their age</button>
+          </span>
+          <span class="col-2 py-1 bg-light text-center">
+            <button class="btn-sm btn-success" onclick="sqlQuery4()">All multilingual books</button>
+          </span>
+          <span class="col-2 py-1 bg-light text-center">
+            <button class="btn-sm btn-success" onclick="sqlQuery5()">Number of Portuguese books</button>
+          </span>
+          <span class="col-2 py-1 bg-light text-center">
+            <button class="btn-sm btn-warning" onclick="allBooks()">All Books</button>
+          </span>
+        </div>
+        <div class="row px-3 py-1">
+          <span class="col-1 py-1 bg-noroff">Id</span>
+          <span class="col-1 py-1 bg-noroff">Author</span>
+          <span class="col-1 py-1 bg-noroff">Title</span>
+          <span class="col-2 py-1 bg-noroff">Description</span>
+          <span class="col-1 py-1 bg-noroff">Publisher</span>
+          <span class="col-1 py-1 bg-noroff">Age</span>
+          <span class="col-2 py-1 bg-noroff">Languages</span>
+          <span class="col-1 py-1 bg-noroff">Genre</span>
+          <span class="col-1 py-1 bg-noroff">Borrowed</span>
+          <span class="col-1 py-1 bg-noroff text-center">Options</span>
+
+        </div>
+        <% books.forEach(function(item) { %>
+          <div class="row px-3 py-1">
+            <span class="col-1 py-1 bg-light">
+              <%=item.id%>
+            </span>
+            <span class="col-1 py-1 bg-light">
+              <%=item.author%>
+            </span>
+            <span class="col-1 py-1 bg-light">
+              <%=item.title%>
+            </span>
+            <span class="col-2 py-1 bg-light">
+              <%=item.description%>
+            </span>
+            <span class="col-1 py-1 bg-light">
+              <%=item.publisher%>
+            </span>
+            <span class="col-1 py-1 bg-light">
+              <%=item.Age%>
+            </span>
+            <span class="col-2 py-1 bg-light">
+              <%=item.language%>
+            </span>
+            <span class="col-1 py-1 bg-light">
+              <%=item.genre%>
+            </span>
+            <span class="col-1 py-1 bg-light">
+              <%=item.borrowed%>
+            </span>
+            <span class="col-1 py-1 bg-light text-center">
+              <button class="btn-sm btn-warning" onclick="bookoutBook(<%=item.id%>)">Borrow</button>
+              <button class="btn-sm btn-danger" onclick="returnBook(<%=item.id%>)">Return</button>
+            </span>
+          </div>
+          <% }); %>
+            <hr>
+
+      </div>
+    </div>
+</body>
+
+</html>

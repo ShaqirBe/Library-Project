@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DAB R2 • LMS</title>
+  <%- include('./partials/head.ejs') %>
+    <script src="/js/common.js"></script>
+
+</head>
+
+<body>
+  <%- include('./partials/navbar.ejs', {user: user}) %>
+    <div class="container-fluid mt-5">
+      <h2 class="p-3 text-center">Library Management System - Languages</h2>
+      <div class="list-group">
+        <div class="row px-3 py-1 w-100">
+          <span class="col py-1 bg-noroff">Id</span>
+          <span class="col py-1 bg-noroff">Language</span>
+          <span class="col py-1 bg-noroff">Options</span>
+        </div>
+        <% languages.forEach(function(item) { %>
+          <div class="row px-3 py-1 w-100">
+            <span class="col py-1 bg-light">
+              <%=item.id%>
+            </span>
+            <span class="col py-1 bg-light">
+              <%=item.name%>
+            </span>
+            <span class="col py-1 bg-light text-center">
+              <button class="btn-sm btn-warning" onclick="updateLanguage(<%=item.id%>)">Update language</button>
+              <button class="btn-sm btn-danger" onclick="deleteLanguage(<%=item.id%>)">Delete language</button>
+            </span>
+          </div>
+          <% }); %>
+            <hr>
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-4 text-center mt-2">
+                <form action="/languages/add" method="POST" class="d-flex gap-2 justify-content-center">
+                  <input class="form-control" type="text" name="name" placeholder="Language name" required>
+                  <button class="btn btn-success" id="btn-add-language">Add New Language</button>
+                </form>
+              </div>
+              <div class="col-4"></div>
+            </div>
+      </div>
+    </div>
+</body>
+
+</html>
