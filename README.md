@@ -15,8 +15,8 @@
 ## Environment Variables
 ```env
 DATABASE_NAME=librarydb
-ADMIN_USERNAME=dabcaowner
-ADMIN_PASSWORD=dabca1234
+ADMIN_USERNAME=your_db_user
+ADMIN_PASSWORD=your_db_password
 DIALECT=mysql
 HOST=localhost
 SESSION_SECRET=replace-with-a-strong-secret
@@ -46,7 +46,7 @@ CREATE DATABASE `librarydb`;
 
 ## DATABASEACCESS
 ```sql
-CREATE USER 'dabcaowner'@'localhost' IDENTIFIED BY 'dabca1234';
-GRANT ALL PRIVILEGES ON `librarydb`.* TO 'dabcaowner'@'localhost';
+CREATE USER 'your_db_user'@'localhost' IDENTIFIED BY 'your_db_password';
+GRANT ALL PRIVILEGES ON `librarydb`.* TO 'your_db_user'@'localhost';
 FLUSH PRIVILEGES;
 ```
